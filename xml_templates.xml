@@ -91,7 +91,12 @@
 					&lt;/group&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group group_by" enabled="true" name="group group_by">&lt;group name="group_by" string="${Group}..."&gt;
 						&lt;filter name="group_by_${state}" string="${State}" context="{'group_by': '${state}'}" icon="gtk-ok"/&gt;
 						${cursor}
-					&lt;/group&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group_by" enabled="true" name="group_by">&lt;filter name="group_by_${state}" string="${State}" context="{'group_by': '${state}'}" icon="gtk-ok"/&gt;${cursor}</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_new" enabled="true" name="menu_item_new">		&lt;menuitem id="${object_name}_menu" name="${MenuTitle}" sequence="${15}" parent="${cursor}" action="action_${object_name}_tree_view"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_parent" enabled="true" name="menu_item_parent">&lt;menuitem id="${object_name}_menu" name="${MenuTitle}" sequence="${10}" /&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="opener_tag" enabled="true" name="openerp_tag">&lt;openerp&gt;
+					&lt;/group&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group_by" enabled="true" name="group_by">&lt;filter name="group_by_${state}" string="${State}" context="{'group_by': '${state}'}" icon="gtk-ok"/&gt;${cursor}</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_new" enabled="true" name="menu_item_new">		&lt;menuitem id="${object_name}_menu" name="${MenuTitle}" sequence="${15}" parent="${cursor}" action="action_${object_name}_tree_view"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_parent" enabled="true" name="menu_item_parent">&lt;menuitem id="${object_name}_menu" name="${MenuTitle}" sequence="${10}" /&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_notebook" enabled="true" name="notebook">&lt;notebook colspan="4"&gt;
+							&lt;page string="${Page_String}"&gt;
+								&lt;field name="name" /&gt;
+							&lt;/page&gt;
+						&lt;/notebook&gt;${cursor}
+</template><template autoinsert="true" context="xml_all" deleted="false" description="opener_tag" enabled="true" name="openerp_tag">&lt;openerp&gt;
     &lt;data&gt;
     
     
