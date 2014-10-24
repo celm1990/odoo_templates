@@ -1,0 +1,2 @@
+*Crear platillas para nuevas firmas de la nueva api(_constrains, on_change, depends, etc)
+*Documentar los decoradores
