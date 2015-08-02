@@ -33,8 +33,7 @@ _constraints = [(_check_${method}, _('Error: Invalid Message'), ['${field_name}'
 		'${module_name}.${id_xml_sub_type_messaje}': lambda self, cr, uid, obj, ctx=None: ${condition},
 		},
 	${cursor}
-	}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="action_close_wizard" enabled="true" name="action_close_wizard">{'type': 'ir.actions.act_window_close'}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="compute- use for compute fields function" enabled="true" name="compute">compute='${_function_call}'${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Create a workflow instance for each given record IDs." enabled="true" name="create workflow">self.create_workflow(cr, uid, ${ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.constrains" enabled="true" name="Decorator @api.constrains">@api.one
-	@api.constrains('${field_name}',${cursor})</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.depends" enabled="true" name="Decorator @api.depends">@api.depends('${field_name}',${cursor})</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.model" enabled="true" name="Decorator @api.model">@api.model</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.multi" enabled="true" name="Decorator @api.multi">@api.multi</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.onchange" enabled="true" name="Decorator @api.onchange">@api.onchange('${field_name}',${cursor})</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.one" enabled="true" name="Decorator @api.one">@api.one</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def action_workflow" enabled="true" name="def action_workflow">def action_cancel(self, cr, uid, ids, *args): 
+	}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="action_close_wizard" enabled="true" name="action_close_wizard">{'type': 'ir.actions.act_window_close'}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="compute- use for compute fields function" enabled="true" name="compute">compute='${_function_call}'${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Create a workflow instance for each given record IDs." enabled="true" name="create workflow">self.create_workflow(cr, uid, ${ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.constrains" enabled="true" name="Decorator @api.constrains">@api.constrains('${field_name}',${cursor})</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.depends" enabled="true" name="Decorator @api.depends">@api.depends('${field_name}',${cursor})</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.model" enabled="true" name="Decorator @api.model">@api.model</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.multi" enabled="true" name="Decorator @api.multi">@api.multi</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.onchange" enabled="true" name="Decorator @api.onchange">@api.onchange('${field_name}',${cursor})</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Decorator @api.one" enabled="true" name="Decorator @api.one">@api.one</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def action_workflow" enabled="true" name="def action_workflow">def action_cancel(self, cr, uid, ids, *args): 
 	#TODO : Business Process
  	return result ${cursor}
 	result = True</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def copy" enabled="true" name="def copy">def copy(self, cr, uid, id, default=None, context=None): 
@@ -51,15 +50,13 @@ _constraints = [(_check_${method}, _('Error: Invalid Message'), ['${field_name}'
         default={}
 	data = super(${ModelName}, self).copy_data(cr, uid, id, default, context)
 	${cursor}
-	return data</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def create" enabled="true" name="def create">def create(self, cr, uid, vals, context=None):
-    if not context:
-        context={}
-	res_id = super(${ModelName}, self).create(cr, uid, vals, context)
+	return data</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def create" enabled="true" name="def create">@api.model
+def create(self, vals):
+	new_rec = super(${ModelName}, self).create(vals)
 	${cursor}
-	return res_id</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def default_get" enabled="true" name="def default_get">def default_get(self, cr, uid, fields_list, context=None):
-    if not context:
-        context={}
-	values = super(${ModelName}, self).default_get(cr, uid, fields_list, context)
+	return new_rec</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def default_get" enabled="true" name="def default_get">@api.model
+def default_get(self, fields_list):
+	values = super(${ModelName}, self).default_get(fields_list)
 	${cursor}
 	return values</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def fields_get" enabled="true" name="def fields_get">def fields_get(self, cr, uid, fields=None, context=None, write_access=True):
     if not context:
@@ -67,46 +64,41 @@ _constraints = [(_check_${method}, _('Error: Invalid Message'), ['${field_name}'
 	res = super(${ModelName}, self).fields_get(cr, uid, fields, context, write_access) 
 	${cursor}
 	return res
-</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def fields_view_get" enabled="true" name="def fields_view_get">def fields_view_get(self, cr, uid, view_id=None, view_type=False, context=None, toolbar=False, submenu=False):
-    if not context:
-        context={}
-	res = super(${ModelName}, self).fields_view_get(cr, uid, view_id, view_type, context, toolbar, submenu)
+</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def fields_view_get" enabled="true" name="def fields_view_get">@api.model
+def fields_view_get(self, view_id=None, view_type=False, toolbar=False, submenu=False):
+	res = super(${ModelName}, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
 	${cursor}
-	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_get" enabled="true" name="def name_get">def name_get(self, cr, uid, ids, context=None):
-	if not context:
-		context = {}
-	if not ids:
-    	return []
+	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_get" enabled="true" name="def name_get">@api.multi
+def name_get(self):
     res = []
-    for ${element} in self.browse(cr, uid, ids, context):
+    for ${element} in self:
     	name = _(u"%s") % (${element}.name)
         res.append((${element}.id, name))
     ${cursor}
-	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_search" enabled="true" name="def name_search">def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=80):
+	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def name_search" enabled="true" name="def name_search">@api.model
+def name_search(self, name, args=None, operator='ilike', limit=80):
 	#TODO: make a search on specific fields and get ids     
 	if not args:
         args=[]
-    if not context:
-        context={}
     ids = []
     if name:
-        ids = self.search(cr, uid, [('code','ilike',name)]+ args, limit=limit)
+        ids = self.search([('code','ilike',name)]+ args, limit=limit)
     if not ids:
-        ids = self.search(cr, uid, [('name',operator,name)]+ args, limit=limit)
+        ids = self.search([('name',operator,name)]+ args, limit=limit)
     ${cursor}
-    return self.name_get(cr, uid, ids, context=context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def Odoo Function" enabled="true" name="def Odoo Function">def ${method_name}(self, cr, uid, ids, context=None):
+    return self.name_get()${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def Odoo Function" enabled="true" name="def Odoo Function">def ${method_name}(self, cr, uid, ids, context=None):
 	if not context:
 		context={}
 	res = None
 	#TODO : Odoo Business Process 
 	${cursor}
-	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def Odoo Function New API" enabled="true" name="def Odoo Function New API">def ${method_name}(self):
+	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def Odoo Function New API" enabled="true" name="def Odoo Function New API">@api.model
+def ${method_name}(self):
 	#TODO : Odoo Business Process 
 	${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Function for fields type function" enabled="true" name="def Odoo Function_fields_calculate">@api.depends('${field_to_recompute_id}'${cursor})
     def _compute_${field_name}(self):
-    	#TODO: process to compute field</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def on_change" enabled="true" name="def on_change">def onchange_${name}(self, cr, uid, ids, ${fields}, context=None):
-    if not context:
-        context={}
+    	#TODO: process to compute field</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def on_change" enabled="true" name="def on_change">@api.multi
+def onchange_${name}(self, ${fields}):
 	value = {}
 	domain = {}
 	warning={}
@@ -117,48 +109,40 @@ _constraints = [(_check_${method}, _('Error: Invalid Message'), ['${field_name}'
 	res = super(${ModelName}, self).read(cr, uid, ids, fields, context) 
 	#TODO : process on result
 	${cursor}
-	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def read_group" enabled="true" name="def read_group">def read_group(self, cr, uid, domain, fields, groupby, offset=0, limit=None, context=None, orderby=False, lazy=True):
-    if not context:
-        context={}
-    res = super(${ModelName}, self).read_group(cr, uid, domain, fields, groupby, offset, limit, context, orderby, lazy)
+	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def read_group" enabled="true" name="def read_group">@api.model
+def read_group(self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True):
+    res = super(${ModelName}, self).read_group(domain=domain, fields=fields, groupby=groupby, offset=offset, limit=limit, orderby=orderby, lazy=lazy)
     ${cursor}
-    return res </template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def search" enabled="true" name="def search">def search(self, cr, uid, args, offset=0, limit=None, order=None, context=None, count=False):
-    if not context:
-        context={}
+    return res </template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def search" enabled="true" name="def search">@api.model
+def search(self, args, offset=0, limit=None, order=None, count=False):
 	#TODO : process on args before search
 	${cursor}
-	res = super(${ModelName}, self).search(cr, uid, args, offset, limit, order, context, count)
-	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def unlink" enabled="true" name="def unlink">def unlink(self, cr, uid, ids, context=None):
-    if not context:
-        context={}
+	res = super(${ModelName}, self).search(args=args, offset=offset, limit=limit, order=order, count=count)
+	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def unlink" enabled="true" name="def unlink">@api.multi
+def unlink(self):
 	#TODO: process before delete resource
-	res = super(${ModelName}, self).unlink(cr, uid, ids, context)
+	res = super(${ModelName}, self).unlink()
 	${cursor}
-	return res </template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def view_init" enabled="true" name="def view_init">def view_init(self, cr, uid, fields_list, context=None):
-	if not context:
-		context={}
-	res = super(${ModelName}, self).view_init(cr, uid, fields_list, context)
+	return res </template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def view_init" enabled="true" name="def view_init">@api.model
+def view_init(self, fields_list):
+	res = super(${ModelName}, self).view_init(fields_list)
 	${cursor}
-	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def write" enabled="true" name="def write">def write(self, cr, uid, ids, vals, context=None):
-    if not context:
-        context={}
+	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def write" enabled="true" name="def write">@api.multi
+def write(self, vals):
 	#TODO: process before updating resource
-	res = super(${ModelName}, self).write(cr, uid, ids, vals, context)
+	res = super(${ModelName}, self).write(vals)
 	${cursor}
-	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="default function" enabled="true" name="default function">default=${default_function_name}, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="default lambda" enabled="true" name="default lambda">default=lambda self: self.env.user, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="default string" enabled="true" name="default string">default = u'${draft}', ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Delete the workflow instances bound to the given record IDs." enabled="true" name="delete workflow">self.delete_workflow(cr, uid, ${ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : domain" enabled="true" name="domain">domain=[('${state}','=','${done}'), ${cursor}]</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Binary" enabled="true" name="fields.Binary">${file_field} = fields.Binary(u'${Label}', filters=None, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Boolean" enabled="true" name="fields.Boolean">${is_bool} = fields.Boolean(u'${Is_bool}?', readonly=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Char" enabled="true" name="fields.Char">${name} = fields.Char(u'${Name}', size=${256}, required=${False}, readonly=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Date" enabled="true" name="fields.Date">${datee} = fields.Date(u'${Date}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Datetime" enabled="true" name="fields.Datetime">${datetime} = fields.Datetime(u'${Date}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Float" enabled="true" name="fields.Float">${number} = fields.Float(u'${Number}', digits=dp.get_precision('Account'), help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Html" enabled="true" name="fields.Html">${name} = fields.Html(u'${Name}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Integer" enabled="true" name="fields.Integer">${number} = fields.Integer(u'${Number}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Many2many" enabled="true" name="fields.Many2many">${data}_ids = fields.Many2many('${OdooModel}', '${partner}_${category}_rel', '${model1}_id', '${model2}_id', u'${Label}',
+	return res</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="default function" enabled="true" name="default function">default=${default_function_name}, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="default lambda" enabled="true" name="default lambda">default=lambda self: self.env.user, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="default string" enabled="true" name="default string">default = u'${draft}', ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Delete the workflow instances bound to the given record IDs." enabled="true" name="delete workflow">self.delete_workflow(cr, uid, ${ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : domain" enabled="true" name="domain">domain=[('${state}','=','${done}'), ${cursor}]</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Binary" enabled="true" name="fields.Binary">${file_field} = fields.Binary(u'${Label}', filters=None, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Boolean" enabled="true" name="fields.Boolean">${is_bool} = fields.Boolean(u'${Is_bool}?', readonly=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Char" enabled="true" name="fields.Char">${name} = fields.Char(u'${Name}', size=${256}, required=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Date" enabled="true" name="fields.Date">${datee} = fields.Date(u'${Date}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Datetime" enabled="true" name="fields.Datetime">${datetime} = fields.Datetime(u'${Date}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Float" enabled="true" name="fields.Float">${number} = fields.Float(u'${Number}', digits=dp.get_precision('Account'), help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Html" enabled="true" name="fields.Html">${name} = fields.Html(u'${Name}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Integer" enabled="true" name="fields.Integer">${number} = fields.Integer(u'${Number}', help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Many2many" enabled="true" name="fields.Many2many">${data}_ids = fields.Many2many('${OdooModel}', '${partner}_${category}_rel', '${model1}_id', '${model2}_id', u'${Label}',
 							   help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Many2one" enabled="true" name="fields.Many2one">${field}_id = fields.Many2one('${OdooModel}', u'${Label}', required=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.One2many" enabled="true" name="fields.One2many">${line}_ids = fields.One2many('${OdooModel}', '${field}_id', u'${Label}', required=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Selection: &quot;_function_name&quot;" enabled="true" name="fields.Selection: &quot;_function_name&quot;">${state} = fields.Selection('${_function_name}', string=u'${State}', index=True, readonly=${True}, 
 							help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Selection: [('draft','Draft')]" enabled="true" name="fields.Selection: [('draft','Draft')]">${state} = fields.Selection([('${draft}','${Draft}'),
 							('${done}','${Done}'),
 							('${cancel}','${Cancel}'),
 							],	string=u'${State}', index=True, readonly=${True}, default='${draft}',
-							help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Text" enabled="true" name="fields.Text">${name} = fields.Text(string=u'${Name}', required=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="groups" enabled="true" name="groups">groups='${module_name}.${id_xml}'${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : help" enabled="true" name="help">help=u"${HelpAboutField}", ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import Date Format" enabled="true" name="import Date Format">from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import DateTime Format" enabled="true" name="import DateTime Format">from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import ORM exceptions" enabled="true" name="import ORM exceptions">from openerp.exceptions import except_orm, Warning, RedirectWarning, ValidationError</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import Time Format" enabled="true" name="import Time Format">from openerp.tools import DEFAULT_SERVER_TIME_FORMAT as DTF</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Odoo Inherir Model from other model" enabled="true" name="Odoo Inherit Model">from openerp import models, api, fields
+							help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="fields.Text" enabled="true" name="fields.Text">${name} = fields.Text(string=u'${Name}', required=${False}, help=u"${}",)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="groups" enabled="true" name="groups">groups='${module_name}.${id_xml}'${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : help" enabled="true" name="help">help=u"${HelpAboutField}", ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import keyword" enabled="true" id="org.python.pydev.editor.templates.python.import" name="import">import ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import Date Format" enabled="true" name="import Date Format">from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import DateTime Format" enabled="true" name="import DateTime Format">from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DTF</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import ORM exceptions" enabled="true" name="import ORM exceptions">from openerp.exceptions import except_orm, Warning, RedirectWarning, ValidationError</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="import Time Format" enabled="true" name="import Time Format">from openerp.tools import DEFAULT_SERVER_TIME_FORMAT as DTF</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Odoo Inherir Model from other model" enabled="true" name="Odoo Inherit Model">from openerp import models, api, fields
 import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 class ${ClassName}(models.Model):
-    '''
-    Odoo Model
-    '''
     _inherit = '${odoomodel}'
     
     ${cursor}
@@ -168,9 +152,6 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 class ${ClassName}(models.TransientModel):
-    '''
-    Odoo Model
-    '''
     _inherit = '${odoomodel}'
     
     ${cursor}
@@ -202,9 +183,6 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 class ${ClassName}(models.Model):
-    '''
-    Odoo Model
-    '''
     _name = '${odoomodel}'
     _description = '${odoomodel}'
     
@@ -215,16 +193,10 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 class ${ClassName}(models.TransientModel):
-    '''
-    Odoo Model
-    '''
+
     _name = '${odoomodel}'
     _description = '${odoomodel}'
     
     ${name} = fields.Char(string=u'${Name}', size=255, required=${False}, readonly=${False}, help=u"${}",)${cursor}
             
-${ClassName}()</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise except_orm" enabled="true" name="raise except_orm">raise except_orm(_(u'${Message}'), _(u'${extra_msj}'))</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise RedirectWarning" enabled="true" name="raise RedirectWarning">raise RedirectWarning(_(u'${Message}'), ${action_id}, _(u'${Button_Title}'))</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise Warning" enabled="true" name="raise Warning">raise Warning(_(u"${Message}"))${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise ValidationError" enabled="true" name="raise ValidationError">raise ValidationError(_(u"${Message}"))${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : readonly" enabled="true" name="readonly">readonly=${True}, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Rebind the workflow instance bound to the given 'old' record IDs to the given 'new' IDs. (``old_new_ids`` is a list of pairs ``(old, new)" enabled="true" name="redirect workflow">self.redirect_workflow(cr, uid, ${old_new_ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="related" enabled="true" name="related">related='${field_reference_id}.${field_related}'${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : required" enabled="true" name="required">required=${True}, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="return keyword" enabled="true" id="org.python.pydev.editor.templates.python.return" name="return">return ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Send given workflow signal and return a dict mapping ids to workflow results" enabled="true" name="singal workflow">self.signal_workflow(cr, uid, ${ids}, ${signal}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="States" enabled="true" name="states">states={'${draft}':[('readonly',${False})${cursor}]}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="STATES" enabled="true" name="STATES">STATES = {'${draft}': [('${readonly}', ${True}),]}${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="states = STATES" enabled="true" name="states = STATES">states = STATES</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Reevaluate the workflow instances of the given record IDs" enabled="true" name="step workflow">self.step_workflow(cr, uid, ${ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="track_visibility- onchange;always" enabled="true" name="track_visibility">track_visibility='${onchange}'${cursor}</template>
-<template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Constraint function new api" enabled="true" name="constraint_function">@api.one
-    @api.constrains('${field_name}',)
-    def _check_${function_name}(self):
-        raise ValidationError(_(u"${Message}"))${cursor}</template></templates>
+${ClassName}()</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise except_orm" enabled="true" name="raise except_orm">raise except_orm(_(u'${Message}'), _(u'${extra_msj}'))</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise RedirectWarning" enabled="true" name="raise RedirectWarning">raise RedirectWarning(_(u'${Message}'), ${action_id}, _(u'${Button_Title}'))</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise ValidationError" enabled="true" name="raise ValidationError">raise ValidationError(_(u"${Message}"))${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="raise Warning" enabled="true" name="raise Warning">raise Warning(_(u"${Message}"))${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : readonly" enabled="true" name="readonly">readonly=${True}, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Rebind the workflow instance bound to the given 'old' record IDs to the given 'new' IDs. (``old_new_ids`` is a list of pairs ``(old, new)" enabled="true" name="redirect workflow">self.redirect_workflow(cr, uid, ${old_new_ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="related" enabled="true" name="related">related='${field_reference_id}.${field_related}'${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Field Attribute : required" enabled="true" name="required">required=${True}, ${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Send given workflow signal and return a dict mapping ids to workflow results" enabled="true" name="singal workflow">self.signal_workflow(cr, uid, ${ids}, ${signal}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="States" enabled="true" name="states">states={'${draft}':[('readonly',${False})${cursor}]}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="STATES" enabled="true" name="STATES">STATES = {'${draft}': [('${readonly}', ${True}),]}${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="states = STATES" enabled="true" name="states = STATES">states=STATES</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="Reevaluate the workflow instances of the given record IDs" enabled="true" name="step workflow">self.step_workflow(cr, uid, ${ids}, context)${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="track_visibility- onchange;always" enabled="true" name="track_visibility">track_visibility='${onchange}'${cursor}</template></templates>
