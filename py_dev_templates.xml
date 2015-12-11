@@ -80,13 +80,13 @@ def name_search(self, name, args=None, operator='ilike', limit=80):
 	#TODO: make a search on specific fields and get ids     
 	if not args:
         args=[]
-    ids = []
+    recs = self.browse()
     if name:
-        ids = self.search([('code','ilike',name)]+ args, limit=limit)
+        recs = self.search([('code','ilike',name)]+ args, limit=limit)
     if not ids:
-        ids = self.search([('name',operator,name)]+ args, limit=limit)
+        recs = self.search([('name',operator,name)]+ args, limit=limit)
     ${cursor}
-    return self.name_get()${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def Odoo Function" enabled="true" name="def Odoo Function">def ${method_name}(self, cr, uid, ids, context=None):
+    return recs.name_get()${cursor}</template><template autoinsert="true" context="org.python.pydev.editor.templates.python" deleted="false" description="def Odoo Function" enabled="true" name="def Odoo Function">def ${method_name}(self, cr, uid, ids, context=None):
 	if not context:
 		context={}
 	res = None
@@ -143,6 +143,7 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 class ${ClassName}(models.Model):
+
     _inherit = '${odoomodel}'
     
     ${cursor}
@@ -152,6 +153,7 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 class ${ClassName}(models.TransientModel):
+
     _inherit = '${odoomodel}'
     
     ${cursor}
@@ -183,6 +185,7 @@ import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 
 class ${ClassName}(models.Model):
+
     _name = '${odoomodel}'
     _description = '${odoomodel}'
     
