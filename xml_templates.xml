@@ -3,7 +3,7 @@
 			&lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
-				&lt;tree string="${tree_string}"&gt;
+				&lt;tree string="${string}"&gt;
 					&lt;field name="name"/&gt;
 				&lt;/tree&gt;
 			&lt;/field&gt;
@@ -13,12 +13,14 @@
 			&lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
-				&lt;form string="${form_string}"&gt;
+				&lt;form string="${string}"&gt;
 					&lt;header&gt;
-						&lt;field name="state" windget="statusbar"/&gt;
+						&lt;field name="state" widget="statusbar"/&gt;
 					&lt;/header&gt;
 					&lt;sheet&gt;
-						&lt;field name="name" /&gt;
+						&lt;group col="4" colspan="2" &gt;
+							&lt;field name="name" /&gt;
+						&lt;/group&gt;
 					&lt;/sheet&gt;
 					&lt;footer&gt;
 					
@@ -31,7 +33,7 @@
 			&lt;field name="name"&gt;${objectname}.search&lt;/field&gt;
 			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
-				&lt;search string="${tree_string}"&gt;
+				&lt;search string="${string}"&gt;
 					&lt;field name="name"/&gt;
 				&lt;/search&gt;
 			&lt;/field&gt;
