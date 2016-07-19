@@ -101,7 +101,7 @@
 						&lt;div class="oe_left"&gt;
 							&lt;button string="Ok" name="${action_name}" type="object"
 								icon="${icon}"  class="oe_highlight" /&gt;
-							&lt;button string="Close" special="cancel" type="object"
+							&lt;button string="Cerrar" special="cancel" type="object"
 								icon="gtk-cancel" class="oe_link" /&gt;
 						&lt;/div&gt;
 					&lt;/footer&gt;
