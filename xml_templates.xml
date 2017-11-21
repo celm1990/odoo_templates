@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="xml_all" deleted="false" description="button_object" enabled="true" name="button_object">&lt;button name="${function_name}" states="${state}" string="${string}" type="object" icon="${icon}" class="oe_highlight"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="button_wizard" enabled="true" name="button_wizard">&lt;button name='%(${wizard_id})d' type='action' string='${string}' states='${state}' icon="${icon}"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="button_workflow" enabled="true" name="button_workflow">&lt;button name="${signal}" states="${state}" string="${string}" icon="${icon}"/&gt;</template><template autoinsert="true" context="xml_tag" deleted="false" description="xml comment" enabled="true" id="org.eclipse.wst.xml.ui.internal.templates.comment" name="comment">&lt;!-- ${cursor} --&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="complete_view" enabled="true" name="complete_view">
-    	&lt;record id="${object_name}_tree_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="xml_all" deleted="false" description="button_object" enabled="true" name="button_object">&lt;button name="${function_name}" states="${state}" string="${string}" type="object" icon="${icon}" class="oe_highlight"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="button_wizard" enabled="true" name="button_wizard">&lt;button name='%(${wizard_id})d' type='action' string='${string}' states='${state}' icon="${icon}"/&gt;</template><template autoinsert="true" context="xml_tag" deleted="false" description="xml comment" enabled="true" id="org.eclipse.wst.xml.ui.internal.templates.comment" name="comment">&lt;!-- ${cursor} --&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="complete_view" enabled="true" name="complete_view">
+    	&lt;record id="${model_name}_tree_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.tree&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;tree string="${string}"&gt;
 					&lt;field name="name"/&gt;
@@ -9,9 +9,9 @@
 			&lt;/field&gt;
 		&lt;/record&gt;
 
-		&lt;record id="${object_name}_form_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;record id="${model_name}_form_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.form&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;form string="${string}"&gt;
 					&lt;header&gt;
@@ -34,9 +34,9 @@
 			&lt;/field&gt;
 		&lt;/record&gt;
 
-		&lt;record id="${object_name}_search_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.search&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;record id="${model_name}_search_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.search&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;search string="${string}"&gt;
 					&lt;field name="name"/&gt;
@@ -44,22 +44,22 @@
 			&lt;/field&gt;
 		&lt;/record&gt;
             
-		&lt;record id="${object_name}_action" model="ir.actions.act_window"&gt;
+		&lt;record id="${model_name}_action" model="ir.actions.act_window"&gt;
 			&lt;field name="name"&gt;${string}&lt;/field&gt;
 			&lt;field name="type"&gt;ir.actions.act_window&lt;/field&gt;
-			&lt;field name="res_model"&gt;${objectname}&lt;/field&gt;
+			&lt;field name="res_model"&gt;${model.name}&lt;/field&gt;
 		   &lt;!-- &lt;field name="domain"&gt;[('field_name','condition',criteria)]&lt;/field&gt;--&gt;
 		   &lt;!-- &lt;field name="context"&gt;{'flag':'value'}&lt;/field&gt;--&gt;
 			&lt;field name="view_type"&gt;form&lt;/field&gt;
 			&lt;field name="view_mode"&gt;tree,form&lt;/field&gt;
-			&lt;field name="view_id" ref="${object_name}_tree_view"/&gt;
-			&lt;field name="search_view_id" ref="${object_name}_search_view"/&gt;
+			&lt;field name="view_id" ref="${model_name}_tree_view"/&gt;
+			&lt;field name="search_view_id" ref="${model_name}_search_view"/&gt;
 		&lt;/record&gt;
 
-		&lt;menuitem id="${object_name}_menu" name="${string}" sequence="${15}" parent="${cursor}" action="${object_name}_action"/&gt;
-</template><template autoinsert="true" context="xml_all" deleted="false" description="filter" enabled="true" name="filter">&lt;filter name="filter_by_${state}" string="${Done}" domain="[('${state}','=','${done}')]" /&gt;${cursor}</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view" enabled="true" name="form_view">&lt;record id="${object_name}_form_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;menuitem id="${model_name}_menu" name="${string}" sequence="${15}" parent="${cursor}" action="${model_name}_action"/&gt;
+</template><template autoinsert="true" context="xml_all" deleted="false" description="filter" enabled="true" name="filter">&lt;filter name="filter_by_${state}" string="${Done}" domain="[('${state}','=','${done}')]" /&gt;${cursor}</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view" enabled="true" name="form_view">&lt;record id="${model_name}_form_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.form&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;form string="${form_string}"&gt;
 					&lt;header&gt;
@@ -77,18 +77,18 @@
 					&lt;/sheet&gt;
 				&lt;/form&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_inherit" enabled="true" name="form_view_inherit">&lt;record id="${object_name}_form_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_inherit" enabled="true" name="form_view_inherit">&lt;record id="${model_name}_form_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.form&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="inherit_id" ref="${view_name}"/&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;field name="${field_name}" position="${position}"&gt;
 					&lt;field name="${new_field}"/&gt;
 				&lt;/field&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_wizard" enabled="true" name="form_view_wizard">&lt;record id="${object_name}_form_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.form&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_wizard" enabled="true" name="form_view_wizard">&lt;record id="${model_name}_form_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.form&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;form string="${form_string}"&gt;
 					&lt;group col="4"&gt;
@@ -104,12 +104,12 @@
 					&lt;/footer&gt;
 				&lt;/form&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group_security" enabled="true" name="group_security">&lt;record id="${object_name}_group" model="res.groups"&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group_security" enabled="true" name="group_security">&lt;record id="${model_name}_group" model="res.groups"&gt;
 			&lt;field name="name"&gt;${group_name}&lt;/field&gt;
 			&lt;field name="category_id" ref="${category_id_xml}"/&gt;
 			&lt;field name="implied_ids" eval="[(4, ref('${group_id_xml}'))]"/&gt;
 			&lt;field name="users" eval="[(4, ref('base.user_root'))]"/&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="rule_security" enabled="true" name="rule_security">&lt;record id="${object_name}_rule" model="ir.rule"&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="rule_security" enabled="true" name="rule_security">&lt;record id="${model_name}_rule" model="ir.rule"&gt;
 			&lt;field name="name"&gt;${rule_name}&lt;/field&gt;
 			&lt;field name="model_id" ref="${model_id_xml}"/&gt;
 			&lt;field name="groups" eval="[(4, ref('${group_id_xml}'))]"/&gt;
@@ -120,7 +120,7 @@
 					&lt;/group&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group group_by" enabled="true" name="group group_by">&lt;group name="group_by" string="${Group}"&gt;
 						&lt;filter name="group_by_${state}" string="${State}" context="{'group_by': '${state}'}" /&gt;
 						${cursor}
-					&lt;/group&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group_by" enabled="true" name="group_by">&lt;filter name="group_by_${state}" string="${State}" context="{'group_by': '${state}'}" /&gt;${cursor}</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_new" enabled="true" name="menu_item_new">		&lt;menuitem id="${object_name}_menu" name="${MenuTitle}" sequence="${15}" parent="${cursor}" action="${object_name}_action"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_parent" enabled="true" name="menu_item_parent">&lt;menuitem id="${object_name}_menu" name="${MenuTitle}" sequence="${10}" /&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_notebook" enabled="true" name="notebook">&lt;notebook colspan="2"&gt;
+					&lt;/group&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="group_by" enabled="true" name="group_by">&lt;filter name="group_by_${state}" string="${State}" context="{'group_by': '${state}'}" /&gt;${cursor}</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_new" enabled="true" name="menu_item_new">		&lt;menuitem id="${model_name}_menu" name="${MenuTitle}" sequence="${15}" parent="${cursor}" action="${model_name}_action"/&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="menu_item_parent" enabled="true" name="menu_item_parent">&lt;menuitem id="${model_name}_menu" name="${MenuTitle}" sequence="${10}" /&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="form_view_notebook" enabled="true" name="notebook">&lt;notebook colspan="2"&gt;
 							&lt;page string="${Page_String}"&gt;
 								&lt;field name="name" /&gt;
 							&lt;/page&gt;
@@ -130,62 +130,89 @@
     
     
     &lt;/data&gt;
-&lt;/odoo&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="search_view" enabled="true" name="search_view">		&lt;record id="${object_name}_search_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.search&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+&lt;/odoo&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="search_view" enabled="true" name="search_view">		&lt;record id="${model_name}_search_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.search&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;search string="${search_string}"&gt;
 					&lt;field name="name"/&gt;
 				&lt;/search&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="search_view_inherit" enabled="true" name="search_view_inherit">		&lt;record id="${object_name}_search_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.search&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="search_view_inherit" enabled="true" name="search_view_inherit">		&lt;record id="${model_name}_search_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.search&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="inherit_id" ref="${view_name}"/&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;field name="${field_name}" position="${position}"&gt;
 					&lt;field name="${new_field}"/&gt;
 				&lt;/field&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="tree_view" enabled="true" name="tree_view">		&lt;record id="${object_name}_tree_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="tree_view" enabled="true" name="tree_view">		&lt;record id="${model_name}_tree_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.tree&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;tree string="${tree_string}"&gt;
 					&lt;field name="name"/&gt;
 				&lt;/tree&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="tree_view_inherit" enabled="true" name="tree_view_inherit">		&lt;record id="${object_name}_tree_view" model="ir.ui.view"&gt;
-			&lt;field name="name"&gt;${objectname}.tree&lt;/field&gt;
-			&lt;field name="model"&gt;${objectname}&lt;/field&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="tree_view_inherit" enabled="true" name="tree_view_inherit">		&lt;record id="${model_name}_tree_view" model="ir.ui.view"&gt;
+			&lt;field name="name"&gt;${model.name}.tree&lt;/field&gt;
+			&lt;field name="model"&gt;${model.name}&lt;/field&gt;
 			&lt;field name="inherit_id" ref="${view_name}"/&gt;
 			&lt;field name="arch" type="xml"&gt;
 				&lt;field name="${field_name}" position="${position}"&gt;
 					&lt;field name="${new_field}"/&gt;
 				&lt;/field&gt;
 			&lt;/field&gt;
-		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="action_view" enabled="true" name="action_view">            &lt;record id="${object_name}_action" model="ir.actions.act_window"&gt;
+		&lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="action_view" enabled="true" name="action_view">            &lt;record id="${model_name}_action" model="ir.actions.act_window"&gt;
                 &lt;field name="name"&gt;${Title}&lt;/field&gt;
                 &lt;field name="type"&gt;ir.actions.act_window&lt;/field&gt;
-                &lt;field name="res_model"&gt;${objectname}&lt;/field&gt;
+                &lt;field name="res_model"&gt;${model.name}&lt;/field&gt;
 		   &lt;!-- &lt;field name="domain"&gt;[('field_name','condition',criteria)]&lt;/field&gt;--&gt;
                 &lt;field name="view_type"&gt;form&lt;/field&gt;
                 &lt;field name="view_mode"&gt;tree,form&lt;/field&gt;
-                &lt;field name="view_id" ref="${object_name}_tree_view"/&gt;
-                &lt;field name="search_view_id" ref="${object_name}_search_view"/&gt;
+                &lt;field name="view_id" ref="${model_name}_tree_view"/&gt;
+                &lt;field name="search_view_id" ref="${model_name}_search_view"/&gt;
             &lt;/record&gt;
+</template><template autoinsert="true" context="xml_all" deleted="false" description="report_definition" enabled="true" name="report_definition">
+			&lt;template id="report_${model_name}_document"&gt;
+                &lt;t t-call="web.external_layout"&gt;
+                	&lt;div class="page"&gt;
+                		${cursor}
+                	&lt;/div&gt;
+                &lt;/t&gt;
+            &lt;/template&gt;
+            
+            &lt;template id="report_${model_name}"&gt;
+                &lt;t t-call="web.html_container"&gt;
+                	&lt;t t-foreach="docs" t-as="o"&gt;
+                		&lt;t t-call="${module_name}.report_${model_name}_document" /&gt;
+                	&lt;/t&gt;
+                &lt;/t&gt;
+            &lt;/template&gt;
+			
+			&lt;report 
+				id="action_report_${model_name}" 
+				model="${modelname}"
+                string="${report_string}"
+                report_type="qweb-pdf"
+                name="${module_name}.report_${model_name}"
+                file="${module_name}.report_${model_name}"
+                menu="${True}"
+                paperformat="${module_name}.paperformat_${model_name}"
+            /&gt;
 </template><template autoinsert="true" context="xml_all" deleted="false" description="action_view_window" enabled="true" name="action_view_window">		&lt;record id="${model_name}_action_view_window" model="ir.actions.act_window.view"&gt;
             &lt;field name="sequence" eval="${1}"/&gt;
             &lt;field name="view_mode"&gt;${tree}&lt;/field&gt;
             &lt;field name="view_id" ref="${model_name}_${tree}_view"/&gt;
             &lt;field name="act_window_id" ref="${model_name}_action"/&gt;
-        &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="action_view_wizard" enabled="true" name="action_view_wizard">&lt;record id="${object_name}_action" model="ir.actions.act_window"&gt;
+        &lt;/record&gt;</template><template autoinsert="true" context="xml_all" deleted="false" description="action_view_wizard" enabled="true" name="action_view_wizard">&lt;record id="${model_name}_action" model="ir.actions.act_window"&gt;
                 &lt;field name="name"&gt;${Title}&lt;/field&gt;
                 &lt;field name="type"&gt;ir.actions.act_window&lt;/field&gt;
-                &lt;field name="res_model"&gt;${objectname}&lt;/field&gt;
+                &lt;field name="res_model"&gt;${model.name}&lt;/field&gt;
                 &lt;field name="view_type"&gt;form&lt;/field&gt;
                 &lt;field name="view_mode"&gt;tree,form&lt;/field&gt;
-                &lt;field name="view_id" ref="${object_name}_form_view"/&gt;
+                &lt;field name="view_id" ref="${model_name}_form_view"/&gt;
 				&lt;field name="target"&gt;new&lt;/field&gt;
             &lt;/record&gt;
 </template><template autoinsert="true" context="xml_new" deleted="false" description="xml declaration" enabled="true" id="org.eclipse.wst.xml.ui.internal.templates.xmldeclaration" name="xml declaration">&lt;?xml version="1.0" encoding="${encoding}"?&gt;</template></templates>
